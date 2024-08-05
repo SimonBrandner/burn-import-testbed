@@ -1,15 +1,21 @@
 use burn_import::onnx::ModelGen;
 
-const MODEL_NAMES: [&str; 2] = ["detector", "recognizer"];
-const MODELS_OUT_DIR: &str = "src/models";
-const ONNX_DIR: &str = "models";
+const MODELS_OUTPUT_DIRECTORY: &str = "src/models";
+const MODELS_INPUT_DIRECTORY: &str = "models";
+
+fn get_onnx_file_path(model_name: &str) -> String {
+	format!("{}/{}.onnx", MODELS_INPUT_DIRECTORY, model_name)
+}
 
 fn main() {
 	println!("cargo::rerun-if-changed=models");
-	for model_name in MODEL_NAMES {
-		ModelGen::new()
-			.input(&(String::new() + ONNX_DIR + "/" + model_name + ".onnx"))
-			.out_dir(MODELS_OUT_DIR)
-			.run_from_script();
-	}
+	ModelGen::new()
+		//.input(&get_onnx_file_path("depth_classifier"))
+		//.input(&get_onnx_file_path("landmarks_detector"))
+		//.input(&get_onnx_file_path("yolov5s-detector"))
+		.input(&get_onnx_file_path("detector"))
+		.input(&get_onnx_file_path("eye_blink_classifier"))
+		.input(&get_onnx_file_path("recognizer"))
+		.out_dir(MODELS_OUTPUT_DIRECTORY)
+		.run_from_script();
 }
