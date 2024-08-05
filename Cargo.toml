@@ -5,10 +5,10 @@ edition = "2021"
 build = "src/build.rs"
 
 [build-dependencies]
-burn-import = { git = "https://github.com/tracel-ai/burn", branch = "main" }
+burn-import = { git = "https://github.com/tracel-ai/burn", rev = "a53f459f205889a22ecea3713bbae12d3de7eb0c" }
 
 [dependencies]
-burn = { git = "https://github.com/tracel-ai/burn", branch = "main", features = [
+burn = { git = "https://github.com/tracel-ai/burn", rev = "a53f459f205889a22ecea3713bbae12d3de7eb0c", features = [
   "wgpu",
+  "ndarray",
 ] }
-burn-import = { git = "https://github.com/tracel-ai/burn", branch = "main" }
