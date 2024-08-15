@@ -7,7 +7,7 @@ use burn::tensor::Tensor;
 use models::{detector, eye_blink_classifier, recognizer};
 use std::time::{Duration, Instant};
 
-const ITERATIONS: u32 = 64;
+const ITERATIONS: u32 = 1;
 
 //type Backend = Wgpu<f32, i32>;
 type Backend = NdArray<f32>;
