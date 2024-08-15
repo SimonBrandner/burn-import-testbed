@@ -2,7 +2,7 @@ mod models;
 
 use burn::backend::ndarray::NdArrayDevice;
 use burn::backend::NdArray;
-use burn::backend::{wgpu::WgpuDevice, Wgpu};
+//use burn::backend::{wgpu::WgpuDevice, Wgpu};
 use burn::tensor::Tensor;
 use models::{detector, eye_blink_classifier, recognizer};
 use std::time::{Duration, Instant};
